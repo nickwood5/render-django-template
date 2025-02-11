@@ -10,7 +10,7 @@ services:
     name: mynewproject
     runtime: python
     buildCommand: "./build.sh"
-    startCommand: "pipenv run gunicorn mynewproject.asgi:application -k uvicorn.workers.UvicornWorker"
+    startCommand: "pipenv run daphne -b 0.0.0.0 compeng_gg.asgi:application"
     envVars:
       - key: USE_POSTGRES
         value: true
