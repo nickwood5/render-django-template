@@ -50,7 +50,10 @@ INSTALLED_APPS = [
     "ninja",
     "mynewproject",
     "rest_framework",
+    "channels",
 ]
+
+ASGI_APPLICATION = "mynewproject.asgi.application"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

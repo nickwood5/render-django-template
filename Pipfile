@@ -8,7 +8,6 @@ django = "*"
 django-ninja = "*"
 mypy = "*"
 ruff = "*"
-django-stubs = "*"
 djangorestframework-stubs = "*"
 pytest = "*"
 pytest-django = "*"
@@ -18,6 +17,9 @@ dj-database-url = "*"
 gunicorn = "*"
 uvicorn = "*"
 djangorestframework = "*"
+channels = "*"
+daphne = "*"
+django-stubs = "*"
 
 [dev-packages]
 
