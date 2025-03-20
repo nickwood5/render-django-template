@@ -17,4 +17,4 @@ migrate:
 	pipenv run python manage.py migrate
 
 test:
-	pipenv run pytest
+	pipenv run pytest mynewproject/tests
