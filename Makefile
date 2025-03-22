@@ -18,3 +18,6 @@ migrate:
 
 test:
 	pipenv run pytest mynewproject/tests
+
+init:
+	pipenv install
