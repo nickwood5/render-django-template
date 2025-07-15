@@ -21,3 +21,9 @@ test:
 
 init:
 	pipenv install
+
+fix:
+	make format typecheck lint
+
+collectstatic:
+	pipenv run python manage.py collectstatic --noinput

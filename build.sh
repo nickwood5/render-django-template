@@ -3,7 +3,10 @@
 set -o errexit
 
 # Modify this line as needed for your package manager (pip, poetry, etc.)
-pipenv install
+make init
+
+# Collect static files
+make collectstatic
 
 # Apply any outstanding database migrations
-pipenv run python manage.py migrate
+make migrate
