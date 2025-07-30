@@ -1,13 +1,13 @@
 databases:
   - name: mynewproject_db
-    plan: free
+    plan: basic-1gb
     region: ohio
     databaseName: mynewproject
     user: mynewproject
 
 services:
-  - type: web
-    plan: free
+  - type: starter
+    plan: basic
     name: mynewproject
     runtime: python
     region: ohio
