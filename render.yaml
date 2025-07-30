@@ -25,7 +25,7 @@ services:
       - key: WEB_CONCURRENCY
         value: 4
   - type: worker
-    name: celery-worker
+    name: mynewproject-celery-worker
     env: python
     region: ohio
     buildCommand: "./build.sh"
@@ -33,7 +33,7 @@ services:
     envVars:
       - key: CELERY_BROKER_URL
         fromService:
-          name: celery-redis
+          name: mynewproject-celery-redis
           type: redis
           property: connectionString
       - key: USE_POSTGRES
@@ -43,7 +43,7 @@ services:
           name: mynewproject_db
           property: connectionString
   - type: redis
-    name: celery-redis
+    name: mynewproject-celery-redis
     region: ohio
     plan: starter 
     maxmemoryPolicy: noeviction 
