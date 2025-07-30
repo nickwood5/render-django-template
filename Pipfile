@@ -21,6 +21,9 @@ channels = "*"
 daphne = "*"
 django-stubs = "*"
 django-cors-headers = "*"
+celery = "*"
+celery-stubs = "*"
+redis = "*"
 
 [dev-packages]
 

@@ -1,6 +1,7 @@
 databases:
   - name: mynewproject_db
     plan: free
+    region: ohio
     databaseName: mynewproject
     user: mynewproject
 
@@ -9,6 +10,7 @@ services:
     plan: free
     name: mynewproject
     runtime: python
+    region: ohio
     buildCommand: "./build.sh"
     startCommand: "pipenv run daphne -b 0.0.0.0 mynewproject.asgi:application"
     envVars:
@@ -22,3 +24,28 @@ services:
         generateValue: true
       - key: WEB_CONCURRENCY
         value: 4
+  - type: worker
+    name: celery-worker
+    env: python
+    region: ohio
+    buildCommand: "./build.sh"
+    startCommand: "celery --app=mynewproject worker --loglevel info --concurrency 4"
+    envVars:
+      - key: CELERY_BROKER_URL
+        fromService:
+          name: celery-redis
+          type: redis
+          property: connectionString
+      - key: USE_POSTGRES
+        value: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mynewproject_db
+          property: connectionString
+  - type: redis
+    name: celery-redis
+    region: ohio
+    plan: starter 
+    maxmemoryPolicy: noeviction 
+    ipAllowList: []
+  
