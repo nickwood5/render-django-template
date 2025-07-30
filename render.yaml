@@ -6,7 +6,7 @@ databases:
     user: mynewproject
 
 services:
-  - type: starter
+  - type: web
     plan: basic
     name: mynewproject
     runtime: python
