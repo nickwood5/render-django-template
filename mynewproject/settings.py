@@ -29,6 +29,15 @@ SECRET_KEY = "django-insecure-8v7&^zl_pm($%3ou7eo_iq(b4f$ag$s5s+hfba=y1x)pi#@c&!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+STATIC_URL = "/static/"
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+# Optional: where collected static files go
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
 ALLOWED_HOSTS = [
     "localhost",
 ]
@@ -146,13 +155,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
 STATIC_URL = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL", "redis://localhost:6379/0")
