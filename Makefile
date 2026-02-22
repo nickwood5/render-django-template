@@ -19,6 +19,9 @@ migrate:
 test:
 	uv run pytest mynewproject/tests
 
+init:
+	uv sync --frozen
+
 fix:
 	make format typecheck lint
 
