@@ -12,7 +12,7 @@ services:
     runtime: python
     region: ohio
     buildCommand: "./build.sh"
-    startCommand: "pipenv run daphne -b 0.0.0.0 mynewproject.asgi:application"
+    startCommand: "uv run daphne -b 0.0.0.0 mynewproject.asgi:application"
     envVars:
       - key: USE_POSTGRES
         value: true

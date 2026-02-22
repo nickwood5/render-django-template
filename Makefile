@@ -1,29 +1,26 @@
 typecheck:
-	pipenv run mypy .
+	uv run mypy .
 
 format:
-	pipenv run ruff format .
+	uv run ruff format .
 
 lint:
-	pipenv run ruff check . --fix
+	uv run ruff check . --fix
 
 run:
-	pipenv run daphne -b 0.0.0.0 -p 8000 mynewproject.asgi:application
+	uv run daphne -b 0.0.0.0 -p 8000 mynewproject.asgi:application
 
 makemigrations:
-	pipenv run python manage.py makemigrations
+	uv run python manage.py makemigrations
 
 migrate:
-	pipenv run python manage.py migrate
+	uv run python manage.py migrate
 
 test:
-	pipenv run pytest mynewproject/tests
-
-init:
-	pipenv install
+	uv run pytest mynewproject/tests
 
 fix:
 	make format typecheck lint
 
 collectstatic:
-	pipenv run python manage.py collectstatic --noinput
+	uv run python manage.py collectstatic --noinput
